@@ -345,8 +345,224 @@
                 font-size: 14px;
             }
         }
+
+	/* --- NEW SECTIONS CSS --- */
+
+/* Portfolio/Showcase Styles */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.portfolio-item {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #f0f0f0;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-preview {
+    height: 220px;
+    background: #f8f9fa;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* CSS-only Mockup styles to look like charts (Placeholder) */
+.chart-mockup {
+    width: 80%;
+    height: 60%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: relative;
+}
+.chart-bar {
+    position: absolute;
+    bottom: 15px;
+    width: 12%;
+    background: #2563eb;
+    border-radius: 4px 4px 0 0;
+    opacity: 0.8;
+}
+
+.portfolio-info {
+    padding: 25px;
+}
+
+.portfolio-tag {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #2563eb;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Pricing Styles */
+.pricing-toggle {
+    text-align: center;
+    margin-bottom: 50px;
+    background: #f0f4ff;
+    display: inline-flex;
+    padding: 5px;
+    border-radius: 50px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.currency-btn {
+    padding: 10px 25px;
+    border-radius: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.currency-btn.active {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+.pricing-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.3s;
+}
+
+.pricing-card.popular {
+    border: 2px solid #2563eb;
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+.price {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin: 20px 0 10px;
+    font-feature-settings: "tnum"; /* Tabular numbers for alignment */
+}
+
+.price span {
+    font-size: 16px;
+    color: #666;
+    font-weight: normal;
+}
+
+.features-list {
+    list-style: none;
+    margin: 30px 0;
+}
+
+.features-list li {
+    margin-bottom: 15px;
+    color: #4b5563;
+    display: flex;
+    align-items: center;
+}
+
+.features-list li::before {
+    content: '✓';
+    color: #2563eb;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.pricing-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-outline {
+    border: 2px solid #2563eb;
+    color: #2563eb;
+}
+
+.btn-outline:hover {
+    background: #f0f4ff;
+}
+
+.btn-filled {
+    background: #2563eb;
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.btn-filled:hover {
+    background: #1e40af;
+    transform: translateY(-2px);
+}
+
+/* Consultation Sticky Bar (Optional) */
+.consultation-banner {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    display: none; /* Hidden by default, useful for mobile */
+}
+
+@media (max-width: 768px) {
+    .pricing-card.popular {
+        transform: scale(1);
+    }
+}
     </style>
 </head>
+
+
 <body>
     <nav id="navbar">
         <div class="nav-content">
@@ -354,7 +570,10 @@
             <div class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#benefits">Benefits</a>
+		<a href="#work">Work</a>
+		<a href="#packages">Pricing</a>
                 <a href="#contact">Contact</a>
+
             </div>
         </div>
     </nav>
@@ -433,6 +652,136 @@
         </div>
     </section>
 
+<section id="work" class="section" style="background: #fbfbfb;">
+        <div class="container">
+            <h2 class="section-title">Recent Dashboards</h2>
+            <p style="text-align: center; max-width: 600px; margin: -40px auto 40px; color: #666;">
+                See how we turn complex data into clear decision-making tools.
+            </p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-preview" style="background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);">
+                        <div class="chart-mockup" style="display:flex; align-items:flex-end; justify-content:space-around; padding: 0 10px;">
+                            <div class="chart-bar" style="height: 40%; left: 10%;"></div>
+                            <div class="chart-bar" style="height: 70%; left: 30%; background: #1e40af;"></div>
+                            <div class="chart-bar" style="height: 50%; left: 50%;"></div>
+                            <div class="chart-bar" style="height: 85%; left: 70%; background: #1e40af;"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">E-commerce • KSA</span>
+                        <h3>Salla/Zid Profit Analyzer</h3>
+                        <p>Automated profit & loss calculation, tracking returns (RTO) and delivery fees in real-time.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-preview" style="background: linear-gradient(135deg, #fce7f3 0%, #fdf2f8 100%);">
+                         <div class="chart-mockup" style="padding: 20px;">
+                            <div style="height: 8px; width: 100%; background: #db2777; border-radius: 4px; margin-bottom: 10px; opacity: 0.3;"></div>
+                            <div style="height: 8px; width: 70%; background: #db2777; border-radius: 4px; margin-bottom: 10px; opacity: 0.3;"></div>
+                            <div style="height: 8px; width: 40%; background: #db2777; border-radius: 4px; opacity: 0.8;"></div>
+                         </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Operations • Egypt</span>
+                        <h3>Supply Chain Monitor</h3>
+                        <p>Inventory forecasting dashboard for a Cairo retail chain to prevent stockouts during Ramadan.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-preview" style="background: linear-gradient(135deg, #dcfce7 0%, #f0fdf4 100%);">
+                         <div style="width: 100px; height: 100px; border-radius: 50%; border: 15px solid #16a34a; border-right-color: #dcfce7; transform: rotate(45deg);"></div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Sales • UAE</span>
+                        <h3>CRM Performance Tracker</h3>
+                        <p>Sales team leaderboard and lead conversion tracking connected directly to HubSpot.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="section">
+        <div class="container">
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            
+            <div class="pricing-toggle">
+                <button class="currency-btn active" onclick="switchCurrency('EGP')">EGP (Egypt)</button>
+                <button class="currency-btn" onclick="switchCurrency('SAR')">SAR (KSA)</button>
+                <button class="currency-btn" onclick="switchCurrency('USD')">USD (Intl)</button>
+            </div>
+
+            <div class="pricing-grid">
+                
+                <div class="pricing-card">
+                    <h3>The Health Check</h3>
+                    <p style="color: #666; font-size: 14px;">Perfect for fixing messy data.</p>
+                    <div class="price" data-egp="5,000" data-sar="950" data-usd="250">
+                        5,000 <span style="font-size: 16px">EGP</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>One-time Sales Audit</li>
+                        <li>Identify "Profit Leaks"</li>
+                        <li>Returns & Loss Analysis</li>
+                        <li>30-min Explanation Call</li>
+                    </ul>
+                    <a href="https://wa.me/201091859031?text=I'm%20interested%20in%20the%20Health%20Check" class="pricing-btn btn-outline">
+                        Order via WhatsApp
+                    </a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Automated Dashboard</h3>
+                    <p style="color: #666; font-size: 14px;">Stop using manual Excel sheets.</p>
+                    <div class="price" data-egp="15,000" data-sar="3,500" data-usd="900">
+                        15,000 <span style="font-size: 16px">EGP</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>Custom Looker Studio View</li>
+                        <li>Live Data Connection</li>
+                        <li>English & Arabic Interface</li>
+                        <li>Recorded Training Video</li>
+                        <li>1 Month Support</li>
+                    </ul>
+                    <a href="https://calendly.com/marwa-haroun94/30min" target="_blank" class="pricing-btn btn-filled">
+                        Book Strategy Call
+                    </a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>The Retainer</h3>
+                    <p style="color: #666; font-size: 14px;">Your fractional data partner.</p>
+                    <div class="price" data-egp="20,000" data-sar="4,500" data-usd="1,200">
+                        20,000 <span style="font-size: 16px">EGP</span><span>/mo</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>Monthly Deep-Dive Reports</li>
+                        <li>Weekly Data Cleaning</li>
+                        <li>On-demand Analysis (4hrs)</li>
+                        <li>Quarterly Forecasting</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="https://calendly.com/YOUR_LINK" target="_blank" class="pricing-btn btn-outline">
+                        Inquire Now
+                    </a>
+                </div>
+
+            </div>
+
+            <div style="margin-top: 60px; text-align: center; background: #f0f9ff; padding: 40px; border-radius: 20px; border: 1px dashed #2563eb;">
+                <h3 style="margin-bottom: 10px;">Not sure which one fits?</h3>
+                <p style="margin-bottom: 20px;">Book a free 15-minute discovery call to discuss your data challenges.</p>
+                <a href="https://calendly.com/YOUR_LINK" class="cta-button" style="padding: 12px 30px; font-size: 16px;">Book Free Discovery Call</a>
+            </div>
+
+        </div>
+    </section>
+
     <section id="contact" class="section">
         <div class="container">
             <h2 class="section-title">Ready to Transform Your Data?</h2>
@@ -476,6 +825,25 @@
     </footer>
 
     <script>
+
+// Currency Switcher Logic
+    function switchCurrency(currency) {
+        // Update buttons
+        document.querySelectorAll('.currency-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.textContent.includes(currency)) btn.classList.add('active');
+        });
+
+        // Update prices
+        document.querySelectorAll('.price').forEach(price => {
+            const amount = price.getAttribute(`data-${currency.toLowerCase()}`);
+            let suffix = '';
+            if (price.innerHTML.includes('/mo')) suffix = '<span>/mo</span>';
+            
+            price.innerHTML = `${amount} <span style="font-size: 16px">${currency}</span>${suffix}`;
+        });
+    }
+
         const navbar = document.getElementById('navbar');
         
         window.addEventListener('scroll', () => {
